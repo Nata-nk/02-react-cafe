@@ -1,6 +1,6 @@
 import css from './CafeInfo.module.css'
 
-function App() {
+function CafeInfo() {
 
     return (
         <div className={css.container}>
@@ -12,4 +12,4 @@ function App() {
     )
 }
 
-export default App
+export default CafeInfo
