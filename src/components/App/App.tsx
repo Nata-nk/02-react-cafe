@@ -16,11 +16,11 @@ function App() {
     }
   );
 
-  const handleVote = (key: keyof VoteType) => {
-    setVotes({
-      ...votes,
-      [key]: votes[key] + 1,
-    });
+  const handleVote = (key: VoteType) => {
+    setVotes(prev => ({
+      ...prev,
+      [key]: prev[key] + 1,
+    }));
   };
 
   const resetVotes = () => {
@@ -39,7 +39,7 @@ function App() {
   return (
     <div className={css.app}>
       <CafeInfo />
-      <VoteOptions votes={votes} onVote={handleVote} onReset={resetVotes} canReset={totalVotes > 0} />
+      <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={totalVotes > 0} />
       {totalVotes > 0 ? <VoteStats votes={votes} totalVotes={totalVotes} positiveRate={positiveRate} /> : <Notification />}
 
     </div>
